@@ -16,14 +16,7 @@
                     <h1>🧠 LLM-HPC Project</h1>
                     <p class="tagline">Fine-Tuning de LLaMA 3.2 para Español Latinoamericano</p>
                 </div>
-                <nav class="main-nav">
-                    <a href="#overview" class="nav-link">Resumen</a>
-                    <a href="#technical" class="nav-link">Técnico</a>
-                    <a href="#results" class="nav-link">Resultados</a>
-                    <a href="#infrastructure" class="nav-link">Infraestructura</a>
-                    <a href="#methodology" class="nav-link">Metodología</a>
-                    <a href="#collaboration" class="nav-link">Colaboración</a>
-                </nav>
+                <!-- Tabs are now below the banner -->
                 <div class="user-info">
                     <span id="user-display">👤 <span id="username"></span></span>
                     <button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
@@ -55,7 +48,23 @@
     <main class="main-content">
         <div class="container">
 
-            <!-- Sección: Resumen General -->
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-button active" data-tab="overview">📋 Resumen General</button>
+                <button class="tab-button" data-tab="technical">⚙️ Detalles Técnicos</button>
+                <button class="tab-button" data-tab="results">📊 Resultados</button>
+                <button class="tab-button" data-tab="infrastructure">🖥️ Infraestructura</button>
+                <button class="tab-button" data-tab="methodology">🔬 Metodología</button>
+                <button class="tab-button" data-tab="collaboration">🤝 Colaboración</button>
+                <button class="tab-button" data-tab="future-work">🔮 Trabajo Futuro</button>
+                <button class="tab-button" data-tab="contact">📬 Contacto</button>
+            </div>
+
+            <!-- Tab Content Container -->
+            <div class="tab-content-container">
+
+            <!-- Tab Content: Resumen General -->
+            <div class="tab-content active" data-tab="overview">
             <section id="overview" class="content-section">
                 <h2 class="section-title">📋 Resumen General</h2>
 
@@ -75,8 +84,11 @@
                     <strong>ℹ️ Contexto Regional:</strong> Este trabajo forma parte de una colaboración con el proyecto Latam-GPT de CENIA (Chile) y contribuye al desarrollo de capacidades regionales en modelos de lenguaje contextualizados para América Latina.
                 </div>
             </section>
+            </div>
+            <!-- End Tab Content: Resumen General -->
 
-            <!-- Sección: Detalles Técnicos -->
+            <!-- Tab Content: Detalles Técnicos -->
+            <div class="tab-content" data-tab="technical">
             <section id="technical" class="content-section">
                 <h2 class="section-title">⚙️ Detalles Técnicos</h2>
 
@@ -100,8 +112,11 @@
                     <strong>⚠️ Nota Técnica:</strong> QLoRA (Quantized Low-Rank Adaptation) combina cuantización de 4 bits con adaptadores LoRA, reduciendo drásticamente los requisitos de memoria GPU mientras mantiene la calidad del entrenamiento.
                 </div>
             </section>
+            </div>
+            <!-- End Tab Content: Detalles Técnicos -->
 
-            <!-- Sección: Resultados y Métricas -->
+            <!-- Tab Content: Resultados -->
+            <div class="tab-content" data-tab="results">
             <section id="results" class="content-section">
                 <h2 class="section-title">📊 Resultados y Métricas</h2>
 
@@ -123,8 +138,11 @@
                     <strong>✅ Resultado Destacado:</strong> La perplejidad se redujo un 74.8% (de 21.74 a 5.47), indicando una mejora sustancial en la capacidad del modelo para modelar secuencias en español latinoamericano.
                 </div>
             </section>
+            </div>
+            <!-- End Tab Content: Resultados -->
 
-            <!-- Sección: Infraestructura -->
+            <!-- Tab Content: Infraestructura -->
+            <div class="tab-content" data-tab="infrastructure">
             <section id="infrastructure" class="content-section">
                 <h2 class="section-title">🖥️ Infraestructura HPC-UCR</h2>
 
@@ -157,8 +175,11 @@
                     </div>
                 </div>
             </section>
+            </div>
+            <!-- End Tab Content: Infraestructura -->
 
-            <!-- Sección: Metodología -->
+            <!-- Tab Content: Metodología -->
+            <div class="tab-content" data-tab="methodology">
             <section id="methodology" class="content-section">
                 <h2 class="section-title">🔬 Metodología</h2>
 
@@ -181,8 +202,11 @@
                     <strong>🔗 Repositorio:</strong> Todo el código, scripts y documentación están disponibles públicamente en <a href="https://github.com/Alison-Lobo/llama32_qlora" target="_blank">GitHub</a>
                 </div>
             </section>
+            </div>
+            <!-- End Tab Content: Metodología -->
 
-            <!-- Sección: Colaboración Latam-GPT -->
+            <!-- Tab Content: Colaboración -->
+            <div class="tab-content" data-tab="collaboration">
             <section id="collaboration" class="content-section">
                 <h2 class="section-title">🤝 Colaboración con Latam-GPT</h2>
 
@@ -201,8 +225,11 @@
                     <strong>🚀 Visión:</strong> Este proyecto sienta bases sólidas para el desarrollo continuo de capacidades en modelos de lenguaje para español latinoamericano, demostrando que la investigación competitiva en LLMs es alcanzable con recursos limitados mediante metodologías inteligentes y colaboración regional.
                 </div>
             </section>
+            </div>
+            <!-- End Tab Content: Colaboración -->
 
-            <!-- Sección: Limitaciones y Trabajo Futuro -->
+            <!-- Tab Content: Trabajo Futuro -->
+            <div class="tab-content" data-tab="future-work">
             <section id="future-work" class="content-section">
                 <h2 class="section-title">🔮 Limitaciones y Trabajo Futuro</h2>
 
@@ -231,8 +258,11 @@
                     </div>
                 </div>
             </section>
+            </div>
+            <!-- End Tab Content: Trabajo Futuro -->
 
-            <!-- Sección: Contacto y Referencias -->
+            <!-- Tab Content: Contacto -->
+            <div class="tab-content" data-tab="contact">
             <section id="contact" class="content-section">
                 <h2 class="section-title">📬 Contacto y Referencias</h2>
 
@@ -264,6 +294,11 @@
                     </div>
                 </div>
             </section>
+            </div>
+            <!-- End Tab Content: Contacto -->
+
+            </div>
+            <!-- End Tab Content Container -->
 
         </div>
     </main>
