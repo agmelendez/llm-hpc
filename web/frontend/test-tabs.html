@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Pestañas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container" style="margin-top: 50px;">
+        <h1>Prueba del Sistema de Pestañas</h1>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-button active" data-tab="tab1">Pestaña 1</button>
+            <button class="tab-button" data-tab="tab2">Pestaña 2</button>
+            <button class="tab-button" data-tab="tab3">Pestaña 3</button>
+        </div>
+
+        <!-- Tab Content Container -->
+        <div class="tab-content-container">
+            <!-- Tab 1 -->
+            <div class="tab-content active" data-tab="tab1">
+                <div class="card">
+                    <h2>Contenido Pestaña 1</h2>
+                    <p>Este es el contenido de la primera pestaña.</p>
+                </div>
+            </div>
+
+            <!-- Tab 2 -->
+            <div class="tab-content" data-tab="tab2">
+                <div class="card">
+                    <h2>Contenido Pestaña 2</h2>
+                    <p>Este es el contenido de la segunda pestaña.</p>
+                </div>
+            </div>
+
+            <!-- Tab 3 -->
+            <div class="tab-content" data-tab="tab3">
+                <div class="card">
+                    <h2>Contenido Pestaña 3</h2>
+                    <p>Este es el contenido de la tercera pestaña.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sistema de pestañas simple
+        function setupTabs() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            function switchTab(tabName) {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                const activeButton = document.querySelector(`.tab-button[data-tab="${tabName}"]`);
+                const activeContent = document.querySelector(`.tab-content[data-tab="${tabName}"]`);
+
+                if (activeButton && activeContent) {
+                    activeButton.classList.add('active');
+                    activeContent.classList.add('active');
+                }
+            }
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabName = button.getAttribute('data-tab');
+                    switchTab(tabName);
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', setupTabs);
+    </script>
+</body>
+</html>
