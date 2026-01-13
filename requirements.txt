@@ -1,0 +1,30 @@
+# Core dependencies for LLaMA 3.2 QLoRA Fine-tuning
+# Python 3.8+ required
+
+# PyTorch and CUDA support
+torch==2.7.1
+torchvision==0.22.1
+torchaudio==2.7.1
+
+# Transformers and training
+transformers>=4.40.0
+datasets>=2.18.0
+accelerate>=0.28.0
+
+# Unsloth for efficient QLoRA training
+# Install from source: pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
+# Or use: pip install unsloth
+
+# Tokenization
+sentencepiece>=0.2.0
+
+# Utilities
+tqdm>=4.66.0
+numpy>=1.24.0
+
+# Optional: For monitoring and logging
+tensorboard>=2.15.0
+
+# Development tools (optional)
+ipython>=8.12.0
+jupyter>=1.0.0
