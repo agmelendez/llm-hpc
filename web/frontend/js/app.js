@@ -409,49 +409,53 @@ function displayUserInfo() {
 }
 
 /**
- * Navegación suave
+ * Configura el sistema de pestañas
  */
-function setupSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+function setupTabs() {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    // Función para cambiar de pestaña
+    function switchTab(tabName) {
+        // Desactivar todos los botones y contenidos
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+
+        // Activar el botón y contenido correspondiente
+        const activeButton = document.querySelector(`.tab-button[data-tab="${tabName}"]`);
+        const activeContent = document.querySelector(`.tab-content[data-tab="${tabName}"]`);
+
+        if (activeButton && activeContent) {
+            activeButton.classList.add('active');
+            activeContent.classList.add('active');
+
+            // Hacer scroll suave hacia arriba del contenido
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+            // Guardar pestaña activa en localStorage
+            localStorage.setItem('activeTab', tabName);
+        }
+    }
+
+    // Agregar event listeners a los botones
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const tabName = button.getAttribute('data-tab');
+            switchTab(tabName);
         });
     });
-}
 
-/**
- * Resalta sección activa en navegación
- */
-function setupActiveSection() {
-    const sections = document.querySelectorAll('.content-section');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    window.addEventListener('scroll', () => {
-        let current = '';
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-
-            if (window.pageYOffset >= sectionTop - 100) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
+    // Restaurar última pestaña activa o mostrar la primera
+    const savedTab = localStorage.getItem('activeTab');
+    if (savedTab) {
+        switchTab(savedTab);
+    } else {
+        // Por defecto, mostrar la primera pestaña (overview)
+        switchTab('overview');
+    }
 }
 
 // ==================== INICIALIZACIÓN ====================
@@ -469,9 +473,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         logoutBtn.addEventListener('click', logout);
     }
 
-    // Configurar navegación
-    setupSmoothScroll();
-    setupActiveSection();
+    // Configurar sistema de pestañas
+    setupTabs();
 
     // Cargar datos del proyecto
     await Promise.all([
