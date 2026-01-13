@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LLM-HPC Project - Portal de Información</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header con navegación -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>🧠 LLM-HPC Project</h1>
+                    <p class="tagline">Fine-Tuning de LLaMA 3.2 para Español Latinoamericano</p>
+                </div>
+                <nav class="main-nav">
+                    <a href="#overview" class="nav-link">Resumen</a>
+                    <a href="#technical" class="nav-link">Técnico</a>
+                    <a href="#results" class="nav-link">Resultados</a>
+                    <a href="#infrastructure" class="nav-link">Infraestructura</a>
+                    <a href="#methodology" class="nav-link">Metodología</a>
+                    <a href="#collaboration" class="nav-link">Colaboración</a>
+                </nav>
+                <div class="user-info">
+                    <span id="user-display">👤 <span id="username"></span></span>
+                    <button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner principal -->
+    <section class="hero-banner">
+        <div class="container">
+            <h2 class="hero-title">Fine-Tuning Eficiente de LLaMA 3.2 (1B)</h2>
+            <p class="hero-subtitle">con QLoRA (4-bit) y Unsloth en Infraestructura HPC-UCR</p>
+            <div class="hero-meta">
+                <div class="meta-item">
+                    <strong>Institución:</strong> Universidad de Costa Rica (UCR) - CIOdD
+                </div>
+                <div class="meta-item">
+                    <strong>Fecha:</strong> Enero 2025
+                </div>
+                <div class="meta-item">
+                    <strong>Autores:</strong> Alison Lobo Salas, MSI. Agustín Gómez Meléndez
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <div class="container">
+
+            <!-- Sección: Resumen General -->
+            <section id="overview" class="content-section">
+                <h2 class="section-title">📋 Resumen General</h2>
+
+                <div class="card">
+                    <h3>Abstract</h3>
+                    <div id="project-abstract" class="loading">Cargando información del proyecto...</div>
+                </div>
+
+                <div class="card">
+                    <h3>🎯 Contribuciones Principales</h3>
+                    <ul id="key-contributions" class="contribution-list loading">
+                        <li>Cargando contribuciones...</li>
+                    </ul>
+                </div>
+
+                <div class="info-box info">
+                    <strong>ℹ️ Contexto Regional:</strong> Este trabajo forma parte de una colaboración con el proyecto Latam-GPT de CENIA (Chile) y contribuye al desarrollo de capacidades regionales en modelos de lenguaje contextualizados para América Latina.
+                </div>
+            </section>
+
+            <!-- Sección: Detalles Técnicos -->
+            <section id="technical" class="content-section">
+                <h2 class="section-title">⚙️ Detalles Técnicos</h2>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>🤖 Modelo Base</h3>
+                        <div id="model-info" class="tech-details loading">
+                            <p>Cargando información del modelo...</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>🔧 Configuración de Entrenamiento</h3>
+                        <div id="training-info" class="tech-details loading">
+                            <p>Cargando configuración...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box warning">
+                    <strong>⚠️ Nota Técnica:</strong> QLoRA (Quantized Low-Rank Adaptation) combina cuantización de 4 bits con adaptadores LoRA, reduciendo drásticamente los requisitos de memoria GPU mientras mantiene la calidad del entrenamiento.
+                </div>
+            </section>
+
+            <!-- Sección: Resultados y Métricas -->
+            <section id="results" class="content-section">
+                <h2 class="section-title">📊 Resultados y Métricas</h2>
+
+                <div class="card">
+                    <h3>📈 Resumen de Métricas</h3>
+                    <div id="metrics-summary" class="metrics-grid loading">
+                        <p>Cargando métricas...</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>📉 Evolución por Época</h3>
+                    <div id="epoch-progress" class="loading">
+                        <p>Cargando progreso...</p>
+                    </div>
+                </div>
+
+                <div class="info-box success">
+                    <strong>✅ Resultado Destacado:</strong> La perplejidad se redujo un 74.8% (de 21.74 a 5.47), indicando una mejora sustancial en la capacidad del modelo para modelar secuencias en español latinoamericano.
+                </div>
+            </section>
+
+            <!-- Sección: Infraestructura -->
+            <section id="infrastructure" class="content-section">
+                <h2 class="section-title">🖥️ Infraestructura HPC-UCR</h2>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>💻 Hardware</h3>
+                        <div id="hardware-info" class="loading">
+                            <p>Cargando información de hardware...</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>📦 Software</h3>
+                        <div id="software-info" class="loading">
+                            <p>Cargando stack de software...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>⏱️ Costos Computacionales</h3>
+                    <div id="computational-costs" class="tech-details">
+                        <ul>
+                            <li><strong>Tiempo total de entrenamiento:</strong> ~18 horas (3 bloques × 6h)</li>
+                            <li><strong>GPU utilizada:</strong> NVIDIA A100 80GB</li>
+                            <li><strong>Uso de VRAM:</strong> ~35-40 GB (picos)</li>
+                            <li><strong>Sistema de colas:</strong> SLURM con checkpoints automáticos</li>
+                            <li><strong>Inferencia:</strong> 0.8-1.2 segundos por instrucción</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Metodología -->
+            <section id="methodology" class="content-section">
+                <h2 class="section-title">🔬 Metodología</h2>
+
+                <div id="methodology-content" class="loading">
+                    <p>Cargando metodología...</p>
+                </div>
+
+                <div class="card">
+                    <h3>🎲 Reproducibilidad</h3>
+                    <ul>
+                        <li>✅ Semillas aleatorias fijas (seed=42)</li>
+                        <li>✅ Determinismo en PyTorch activado</li>
+                        <li>✅ Checkpointing cada 200 pasos</li>
+                        <li>✅ Evaluación sincronizada cada 200 pasos</li>
+                        <li>✅ Código abierto en GitHub</li>
+                    </ul>
+                </div>
+
+                <div class="info-box info">
+                    <strong>🔗 Repositorio:</strong> Todo el código, scripts y documentación están disponibles públicamente en <a href="https://github.com/Alison-Lobo/llama32_qlora" target="_blank">GitHub</a>
+                </div>
+            </section>
+
+            <!-- Sección: Colaboración Latam-GPT -->
+            <section id="collaboration" class="content-section">
+                <h2 class="section-title">🤝 Colaboración con Latam-GPT</h2>
+
+                <div id="collaboration-content" class="loading">
+                    <p>Cargando información de colaboración...</p>
+                </div>
+
+                <div class="card">
+                    <h3>🌎 Impacto Regional</h3>
+                    <div id="regional-impact" class="loading">
+                        <p>Cargando impacto...</p>
+                    </div>
+                </div>
+
+                <div class="info-box success">
+                    <strong>🚀 Visión:</strong> Este proyecto sienta bases sólidas para el desarrollo continuo de capacidades en modelos de lenguaje para español latinoamericano, demostrando que la investigación competitiva en LLMs es alcanzable con recursos limitados mediante metodologías inteligentes y colaboración regional.
+                </div>
+            </section>
+
+            <!-- Sección: Limitaciones y Trabajo Futuro -->
+            <section id="future-work" class="content-section">
+                <h2 class="section-title">🔮 Limitaciones y Trabajo Futuro</h2>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>⚠️ Limitaciones Actuales</h3>
+                        <ul>
+                            <li><strong>Evaluación:</strong> Métricas intrínsecas únicamente (loss, perplejidad)</li>
+                            <li><strong>Dataset:</strong> No público por restricciones de privacidad</li>
+                            <li><strong>Modelo:</strong> LLaMA 1B es relativamente pequeño</li>
+                            <li><strong>Benchmarks:</strong> Falta evaluación en benchmarks estándar de español</li>
+                            <li><strong>Evaluación humana:</strong> No se realizó evaluación cualitativa sistemática</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3>🎯 Direcciones Futuras</h3>
+                        <ul>
+                            <li>Evaluar en benchmarks estándar (BETO, Spanish SQuAD)</li>
+                            <li>Implementar evaluación humana sistemática</li>
+                            <li>Explorar modelos más grandes (3B, 7B, 11B)</li>
+                            <li>Aumentar diversidad del dataset</li>
+                            <li>Entrenamiento multi-GPU distribuido</li>
+                            <li>Colaboración ampliada con Latam-GPT</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Contacto y Referencias -->
+            <section id="contact" class="content-section">
+                <h2 class="section-title">📬 Contacto y Referencias</h2>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>👥 Autores</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <strong>Alison Lobo Salas</strong><br>
+                                Universidad de Costa Rica (UCR), CIOdD<br>
+                                📧 alison.lobo@ucr.ac.cr
+                            </div>
+                            <div class="contact-item">
+                                <strong>MSI. Agustín Gómez Meléndez</strong><br>
+                                CIOdD--UCR<br>
+                                📧 agustin.gomez@ucr.ac.cr
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3>🔗 Enlaces</h3>
+                        <ul>
+                            <li><a href="https://github.com/Alison-Lobo/llama32_qlora" target="_blank">📂 Repositorio GitHub</a></li>
+                            <li><a href="https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct" target="_blank">🤗 LLaMA 3.2 Model Card</a></li>
+                            <li><a href="https://cenia.cl/" target="_blank">🌎 Proyecto Latam-GPT (CENIA)</a></li>
+                            <li><a href="https://github.com/unslothai/unsloth" target="_blank">⚡ Unsloth</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>
+                <strong>LLM-HPC Project</strong> - Fine-Tuning Eficiente de LLaMA 3.2 (1B) para Español Latinoamericano<br>
+                Universidad de Costa Rica (UCR) - Centro de Investigación en Opinión y Datos (CIOdD)<br>
+                En colaboración con Latam-GPT (CENIA, Chile) | Enero 2025
+            </p>
+            <p class="security-badge">
+                🔒 Portal seguro con autenticación JWT, protección CSRF y rate limiting
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

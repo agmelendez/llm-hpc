@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login - LLM-HPC Project Portal</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo-section">
+                <h1>🔒 LLM-HPC</h1>
+                <p class="subtitle">Portal de Información del Proyecto</p>
+                <p class="security-badge">🛡️ Acceso Seguro con Autenticación</p>
+            </div>
+
+            <div id="alert-container"></div>
+
+            <!-- Tabs para Login y Registro -->
+            <div class="tab-container">
+                <button class="tab-button active" onclick="showTab('login')">Iniciar Sesión</button>
+                <button class="tab-button" onclick="showTab('register')">Registrarse</button>
+            </div>
+
+            <!-- Formulario de Login -->
+            <form id="login-form" class="auth-form" style="display: block;">
+                <h2>Iniciar Sesión</h2>
+
+                <div class="form-group">
+                    <label for="login-username">
+                        <span class="icon">👤</span> Usuario
+                    </label>
+                    <input
+                        type="text"
+                        id="login-username"
+                        name="username"
+                        required
+                        autocomplete="username"
+                        placeholder="Ingrese su nombre de usuario"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password">
+                        <span class="icon">🔑</span> Contraseña
+                    </label>
+                    <input
+                        type="password"
+                        id="login-password"
+                        name="password"
+                        required
+                        autocomplete="current-password"
+                        placeholder="Ingrese su contraseña"
+                    >
+                </div>
+
+                <button type="submit" class="btn-primary">
+                    <span class="icon">🚀</span> Ingresar
+                </button>
+
+                <div class="security-info">
+                    <p>🔐 Conexión protegida con JWT y CSRF tokens</p>
+                </div>
+            </form>
+
+            <!-- Formulario de Registro -->
+            <form id="register-form" class="auth-form" style="display: none;">
+                <h2>Crear Cuenta</h2>
+
+                <div class="form-group">
+                    <label for="register-username">
+                        <span class="icon">👤</span> Usuario
+                    </label>
+                    <input
+                        type="text"
+                        id="register-username"
+                        name="username"
+                        required
+                        autocomplete="username"
+                        placeholder="3-20 caracteres alfanuméricos"
+                        pattern="[a-zA-Z0-9_]{3,20}"
+                    >
+                    <small>Solo letras, números y guión bajo (3-20 caracteres)</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="register-email">
+                        <span class="icon">📧</span> Email
+                    </label>
+                    <input
+                        type="email"
+                        id="register-email"
+                        name="email"
+                        required
+                        autocomplete="email"
+                        placeholder="correo@ejemplo.com"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="register-password">
+                        <span class="icon">🔑</span> Contraseña
+                    </label>
+                    <input
+                        type="password"
+                        id="register-password"
+                        name="password"
+                        required
+                        autocomplete="new-password"
+                        placeholder="Mínimo 8 caracteres"
+                    >
+                    <small>Mínimo 8 caracteres: mayúsculas, minúsculas y números</small>
+                    <div id="password-strength" class="password-strength"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="register-password-confirm">
+                        <span class="icon">🔑</span> Confirmar Contraseña
+                    </label>
+                    <input
+                        type="password"
+                        id="register-password-confirm"
+                        name="password-confirm"
+                        required
+                        autocomplete="new-password"
+                        placeholder="Repita su contraseña"
+                    >
+                </div>
+
+                <button type="submit" class="btn-primary">
+                    <span class="icon">✨</span> Registrarse
+                </button>
+
+                <div class="security-info">
+                    <p>🔒 Las contraseñas se cifran con PBKDF2-SHA256</p>
+                    <p>🛡️ Validación anti-XSS y SQL Injection</p>
+                </div>
+            </form>
+
+            <!-- Características de Seguridad -->
+            <div class="security-features">
+                <h3>🛡️ Seguridad Implementada</h3>
+                <ul>
+                    <li>✅ Autenticación JWT con tokens seguros</li>
+                    <li>✅ Protección CSRF (Cross-Site Request Forgery)</li>
+                    <li>✅ Rate Limiting contra fuerza bruta</li>
+                    <li>✅ Headers de seguridad HTTP</li>
+                    <li>✅ Validación y sanitización de entradas</li>
+                    <li>✅ Cifrado de contraseñas PBKDF2-SHA256</li>
+                    <li>✅ Protección contra XSS y SQL Injection</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="login-footer">
+            <p>
+                <strong>Proyecto LLM-HPC</strong> - Fine-Tuning de LLaMA 3.2 para Español Latinoamericano<br>
+                Universidad de Costa Rica (UCR) - CIOdD<br>
+                Colaboración con Latam-GPT (CENIA, Chile)
+            </p>
+        </footer>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
